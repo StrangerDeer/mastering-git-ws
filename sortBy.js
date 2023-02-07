@@ -1,8 +1,17 @@
 const getBeers = require('./data')
 
 function main(property) {
-    const beers = getBeers();
+    
     console.log('property:', property)
+    const beers = getBeers()
+    
+    if (property === 'score') {
+        const scoreFilter = beers.sort( function (a,b) {
+            return b.score - a.score
+        });
+        console.log(scoreFilter)
+    }
+   
 
     if (property === 'abv') {
     const sortByABV = beers.sort(function(a,b) {
